@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9234278ac26536a47bcab50effe63f70, type: 3}
   m_Name: New_Sound
   m_EditorClassIdentifier: 
-  Name: main
-  AudioClip: {fileID: 0}
-  Volume: 0
+  Name: intro
+  AudioClip: {fileID: 8300000, guid: 4e11c0c7bf49eaa43a2d93d4c995143e, type: 3}
+  Volume: 1

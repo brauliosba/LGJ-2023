@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9234278ac26536a47bcab50effe63f70, type: 3}
   m_Name: New_Sound 1
   m_EditorClassIdentifier: 
-  Name: sfx1
-  AudioClip: {fileID: 0}
-  Volume: 0
+  Name: perfect
+  AudioClip: {fileID: 8300000, guid: 31a6639a9df1ddc428e0b1baa78a26ea, type: 3}
+  Volume: 1
