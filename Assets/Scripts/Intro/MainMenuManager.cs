@@ -8,6 +8,14 @@ public class MainMenuManager : MonoBehaviour
     {
         AudioManager.instance.PlayMusicFade("intro");
     }
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void GoCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
     public void GoToIntroScene()
     {
         SceneManager.LoadScene("IntroScene");
