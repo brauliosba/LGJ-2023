@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 266018542}
   - component: {fileID: 266018544}
   - component: {fileID: 266018543}
+  - component: {fileID: 266018545}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -153,6 +154,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1702000031}
+  - {fileID: 1343699689}
   m_Father: {fileID: 549775556}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,6 +201,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266018541}
   m_CullTransparentMesh: 1
+--- !u!114 &266018545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266018541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 266018543}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1589244030}
+        m_TargetAssemblyTypeName: IntroManager, Assembly-CSharp
+        m_MethodName: NextLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &517367688
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +424,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 266018542}
-  - {fileID: 1343699689}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -487,12 +544,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 549775556}
+  m_Father: {fileID: 266018542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -221}
+  m_AnchoredPosition: {x: 0, y: -600}
   m_SizeDelta: {x: 1200, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1343699690
@@ -624,8 +681,26 @@ MonoBehaviour:
   backgroundImage: {fileID: 1702000032}
   foregroundImage: {fileID: 517367690}
   mainText: {fileID: 1343699690}
-  backgounds: []
-  dialogueLines: []
+  backgounds:
+  - {fileID: 21300000, guid: e5600378dd761e64d9423790c482bf36, type: 3}
+  - {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
+  - {fileID: 21300000, guid: 3a0c527d7f890d64a9b56b086e6e766a, type: 3}
+  - {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  dialogues:
+  - "\xC9rase una vez, un chef muy amado por todo el mundo. \xA1El chef Oligo! Era
+    due\xF1o de un restaurante muy popular, con la comida m\xE1s deliciosa que podr\xEDas
+    probar. Todos quer\xEDan conocerlo y ser su amigo\u2026\r"
+  - "Sin embargo, algunos no compart\xEDan ese sentimiento\u2026 Algunos estaban
+    resentidos y quer\xEDan vengarse de \xE9l\u2026\r"
+  - "\xA1Eran los vegetales! Aquellos que el chef hab\xEDa cortado para ser alabado,
+    se vengaban y le daban vida a sus hermanas."
+  - "\xBFPero qu\xE9 es eso? Rudy, la ruda, viene a defender a Oligo de su horrible
+    destino. Es hora de empezar esta batalla variopinto.\r\n"
+  dialogueIndices:
+  - indices: 34000000100000002a0000003000000028000000
+  - indices: 3400000035000000
+  - indices: 15000000350000002c000000
+  - indices: 12000000400000002c000000
 --- !u!4 &1589244031
 Transform:
   m_ObjectHideFlags: 0
