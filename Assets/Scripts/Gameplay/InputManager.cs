@@ -13,6 +13,9 @@ public class InputManager : MonoBehaviour
     private int goodCount = 0;
     private int missCount = 0;
     private int perfectCount = 0;
+
+    int baseDamage;
+    bool isDefend;
     public int GetTotalDamage()
     {
         Debug.Log("Finish total damage " + totalDamage);
@@ -33,12 +36,16 @@ public class InputManager : MonoBehaviour
             return;
         CheckInput();
     }
+    public void StartManager(int baseDamage, bool isDefend)
+    {
+        this.baseDamage = baseDamage;
+        this.isDefend = isDefend;
+    }
     public void CheckInput()
     {
         GoalState state = GameManager.instance.battleSeriesManager.goalManager.state;
         InputArrowPrefab currentPrefab = GameManager.instance.battleSeriesManager.spawnManager.currentArrowPrefab();
-        int baseDamage = GameManager.instance.battleSeriesManager.BaseDamage;
-        bool isDefend = GameManager.instance.battleSeriesManager.IsDefend;
+
         int totalSeries = GameManager.instance.battleSeriesManager.spawnManager.TotalSeries;
         int damage = baseDamage / totalSeries;
         if (currentPrefab == null)

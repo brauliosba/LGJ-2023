@@ -26,7 +26,6 @@ public class LevelManager : MonoBehaviour
     [Header("Data")]
     [SerializeField]
     private LevelDataScriptable currentLevel;
-
     private List<GameObject> currentLevelEnemies;
     private Enemy currentEnemy;
     private int currentEnemyIndex = 0;
@@ -80,10 +79,12 @@ public class LevelManager : MonoBehaviour
 
         presicionContianer.SetActive(true);
         MovePresicionContainer(new Vector2(740, 0));
-        int baseDamage = player.Skills[0].Damage;
+        int c = currentEnemyIndex == 2 ? 3 : currentEnemyIndex;
+        int baseDamage = player.Skills[c].Damage;
+        
         //index es la dificultad del enemigo
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(
-            player.Skills[0].InputSeries,
+            player.Skills[3].InputSeries,
             baseDamage,
             true,
             () => {
