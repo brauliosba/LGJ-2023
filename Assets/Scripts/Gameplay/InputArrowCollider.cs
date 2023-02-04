@@ -9,6 +9,7 @@ public class InputArrowCollider : MonoBehaviour
 
         if (collision.name.Contains("Destroy"))
         {
+            AudioManager.instance.PlaySFX("miss");
             GameManager.instance.battleSeriesManager.spawnManager.CheckIsCurrentPrefabIsTheLastOne(this.GetComponent<InputArrowPrefab>());
             this.GetComponent<InputArrowPrefab>().Destroy();
             
