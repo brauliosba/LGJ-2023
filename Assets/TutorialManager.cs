@@ -34,7 +34,7 @@ public class TutorialManager : MonoBehaviour
     {
 
         Debug.Log("tutorial input series");
-        string text = " - Usa las teclas para direccionales para defenderte.\n" +
+        string text = " - Usa las teclas direccionales para defenderte.\n" +
             "- Mientras mejor lo hagas, menos daño te harán.";
         textTutorial.text = text;
         icon.sprite = iconList[1];
