@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -19,7 +16,10 @@ public class LevelManager : MonoBehaviour
     private HealthBar playerHealthBar;
     [SerializeField]
     private HealthBar enemyHealthBar;
-
+    [SerializeField]
+    private TMPro.TextMeshProUGUI endgameTxt;
+    [SerializeField]
+    private GameObject endgameContainer;
     [SerializeField]
     private List<SkillOption> skillOptions;
 
@@ -47,6 +47,8 @@ public class LevelManager : MonoBehaviour
 
         playerHealthBar.gameObject.SetActive(false);
 
+
+        endgameContainer.SetActive(false);
         enemyHealthBar.gameObject.SetActive(false);
         presicionContianer.SetActive(false);
         optionsContianer.SetActive(false);
@@ -55,6 +57,12 @@ public class LevelManager : MonoBehaviour
 
     private void InstantiateEnemy()
     {
+        if (currentEnemyIndex >= currentLevelEnemies.Count)
+        {
+            GameOver(true);
+            //print("current index" + currentEnemyIndex);
+        }
+
         if (!isEnemyAlive)
         {
             GameObject go = Instantiate(currentLevelEnemies[currentEnemyIndex], enemyContainer.transform);
@@ -107,6 +115,7 @@ public class LevelManager : MonoBehaviour
         {
             playerHealthBar.gameObject.SetActive(false);
             player.gameObject.SetActive(false);
+            GameOver(false);
         }
         else
         {
@@ -187,8 +196,10 @@ public class LevelManager : MonoBehaviour
 
     private void PostPlayerAction()
     {
+        
         if (enemyHealth <= 0)
         {
+            
             //enemy.dieAnim
             enemyHealthBar.gameObject.SetActive(false);
             currentEnemy.gameObject.SetActive(false);
@@ -196,7 +207,9 @@ public class LevelManager : MonoBehaviour
             Destroy(currentEnemy.gameObject);
             currentEnemyIndex++;
             isEnemyAlive = false;
+
             InstantiateEnemy();
+            
         }
         else
         {
@@ -213,5 +226,21 @@ public class LevelManager : MonoBehaviour
             optionsContianer.SetActive(false);
             presicionContianer.SetActive(true);
         }
+    }
+    public void GameOver(bool playerWin)
+    {
+        endgameContainer.SetActive(true);
+        if (playerWin)
+        {
+            endgameTxt.text = "You win";
+        }
+        else
+        {
+            endgameTxt.text = "Enemy win";
+        }
+        Timers.TimersManager.SetTimer(this, 1f, () => 
+        {
+            SceneManager.LoadScene("GameOver");
+        });
     }
 }

@@ -11,10 +11,10 @@ public class InputSerie : ScriptableObject
 
     public void Print()
     {
-        Debug.Log("====Name series:" + nameSerie+"====");
+       /// Debug.Log("====Name series:" + nameSerie+"====");
         for (int i = 0; i < inputGame.Count; i++)
         {
-            Debug.Log(inputGame[i].key);
+            //Debug.Log(inputGame[i].key);
         }
     }
     public int length

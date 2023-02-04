@@ -18,10 +18,10 @@ public class InputManager : MonoBehaviour
     bool isDefend;
     public int GetTotalDamage()
     {
-        Debug.Log("Finish total damage " + totalDamage);
-        Debug.Log("miss count " + missCount);
-        Debug.Log("good count " + goodCount);
-        Debug.Log("perfect count " + perfectCount);
+      //  Debug.Log("Finish total damage " + totalDamage);
+      //  Debug.Log("miss count " + missCount);
+      //  Debug.Log("good count " + goodCount);
+      //  Debug.Log("perfect count " + perfectCount);
         return totalDamage;
     }
     void Update()

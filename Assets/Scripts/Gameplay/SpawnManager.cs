@@ -64,7 +64,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void LoopSeriesGamePlay()
     {
-        Debug.Log("spawn " + currentInputInstatiate);
+        //Debug.Log("spawn " + currentInputInstatiate);
         bool islastOne = currentInputInstatiate > seriesGameplay.length-2;
         Spawn(seriesGameplay.GetInputGame(currentInputInstatiate),islastOne);
         currentInputInstatiate++;
