@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 public class AnimationManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class AnimationManager : MonoBehaviour
         RectTransform standRectTransform = stand.GetComponent<RectTransform>();
         RectTransform playerRectTransform = player.GetComponent<RectTransform>();
         RectTransform enemyRectTransform = enemy.GetComponent<RectTransform>();
+        Image enemyImage = enemy.GetComponent<Image>();
+        Image playerImage = player.GetComponent<Image>();
+        Image standImage = stand.GetComponent<Image>();
         float timemove = 0.5f;
         switch (index)
         {
@@ -28,7 +32,8 @@ public class AnimationManager : MonoBehaviour
                 standRectTransform.DOAnchorPosX(standxpos+200, timemove);
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
-                    enemyRectTransform.DOAnchorPosX(enemyxpos+200, timemove);
+                    enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
+                    DOTween.Sequence().AppendInterval(0.2f).Append(enemyImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo));
                 });
                 
                 break;
@@ -38,7 +43,8 @@ public class AnimationManager : MonoBehaviour
                 playerRectTransform.DOAnchorPosX(playerxpos + 200, timemove);
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
-                    enemyRectTransform.DOAnchorPosX(enemyxpos + 200, timemove);
+                    enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
+                    DOTween.Sequence().AppendInterval(0.2f).Append(enemyImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo));
                 });
                 break;
             case 2:
@@ -49,8 +55,13 @@ public class AnimationManager : MonoBehaviour
                 enemyRectTransform.DOAnchorPosX(enemyxpos - 200, timemove);
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
-                    standRectTransform.DOAnchorPosX(standxpos - 200, timemove);
-                    playerRectTransform.DOAnchorPosX(playerxpos - 200, timemove);
+                    standRectTransform.DOAnchorPosX(standxpos - 100, timemove);
+                    playerRectTransform.DOAnchorPosX(playerxpos - 100, timemove);
+                    DOTween.Sequence().AppendInterval(0.2f).AppendCallback(() => 
+                    { 
+                        playerImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo); 
+                        standImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo);
+                    });
                 });
                 break;
 
