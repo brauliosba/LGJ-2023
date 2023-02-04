@@ -11,7 +11,10 @@ public class SkillDataScriptable : ScriptableObject
     private int cooldown;
     [SerializeField]
     private int damage;
+    [SerializeField]
+    private List<InputSerie> inputSeries;
 
+    public List<InputSerie> InputSeries { get { return inputSeries; } }
     public string SkillName { get { return skillName; } }
     public int Cooldown { get { return cooldown; } }
     public int Damage { get { return damage; } }

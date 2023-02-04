@@ -5,7 +5,7 @@ using Timers;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Input series")]
-    [SerializeField] private List<InputSerie> seriesData;
+   // [SerializeField] private List<InputSerie> seriesData;
     [SerializeField] private InputSerie seriesGameplay;
     [SerializeField] private InputArrowPrefab inputArrowPrefab;
     [Header("spawn objects scene")]
@@ -17,14 +17,14 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float timeRateInputPrefabSpawn;
     public InputArrowPrefab currentInputArrowPrefab = null;
     private int currentInputInstatiate = 0;
-
-    public void CreateSeriesGameplay(System.Action startAction)
+    int totalSeries = 0;
+    public void CreateSeriesGameplay(List<InputSerie> seriesData, System.Action startAction)
     {
 
         int x = Random.Range(0, seriesData.Count);
         seriesData[x].Print();
         seriesGameplay = Instantiate(seriesData[x]);
-
+        totalSeries = seriesGameplay.length;
         TimersManager.SetTimer(this, 2, () =>
         {
             Debug.Log("====Begin battle====");
@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
             LoopSeriesGamePlay();
         });
     }
-
+    public int TotalSeries { get { return totalSeries; } }
     public void ResetSpawn()
     {
         currentInputArrowPrefab = null;
@@ -46,8 +46,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (prefab.lastone)
         {
-            int td = GameManager.instance.battleSeriesManager.inputManager.totalDamage;
-            Debug.Log("Finish total damage " + td);
             GameManager.instance.battleSeriesManager.EndBattleSeries();
             
         } 

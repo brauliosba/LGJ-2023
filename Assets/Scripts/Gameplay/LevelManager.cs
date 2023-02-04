@@ -84,8 +84,11 @@ public class LevelManager : MonoBehaviour
     {
         //player.deffend
         //enemy.attack
+
         presicionContianer.SetActive(true);
-        GameManager.instance.battleSeriesManager.AwakeBattleSeries(0, () => {
+        int baseDamage = player.Skills[0].Damage;
+        //index es la dificultad del enemigo
+        GameManager.instance.battleSeriesManager.AwakeBattleSeries(player.Skills[0].InputSeries,baseDamage, () => {
             presicionContianer.SetActive(false);
             playerHealth -= currentEnemy.Damage;
             float newHealth = (float)playerHealth / player.Health;
@@ -141,12 +144,15 @@ public class LevelManager : MonoBehaviour
     {
         //player.attack
         //player.attackAnim
-
-        GameManager.instance.battleSeriesManager.AwakeBattleSeries(index, () => {
+        List<InputSerie> inputSeries = player.Skills[index].InputSeries;
+        int baseDamage = player.Skills[index].Damage;
+        GameManager.instance.battleSeriesManager.AwakeBattleSeries(inputSeries,baseDamage, () => {
             presicionContianer.SetActive(false);
             if (index != 2)
             {
-                enemyHealth -= player.Skills[index].Damage;
+                int td = GameManager.instance.battleSeriesManager.inputManager.totalDamage;
+                Debug.Log("Finish total damage " + td);
+                enemyHealth -= td;
                 float newHealth = (float)enemyHealth / currentEnemy.Health;
                 DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
             }

@@ -31,11 +31,17 @@ public class BattleSeriesManager : MonoBehaviour
         */
     }
     System.Action endBattle;
-    public void AwakeBattleSeries(int dificulty, System.Action endBattle)
+    int baseDamage;
+    
+    public void AwakeBattleSeries(List<InputSerie> inputSeries,int baseDamage, System.Action endBattle)
     {
+        inputManager.ResetDamage();
+        spawnManager.ResetSpawn();
+
         state = BattleState.awake;
+        this.baseDamage = baseDamage;
         
-        spawnManager.CreateSeriesGameplay(()=> { StartBattleSeries(); });
+        spawnManager.CreateSeriesGameplay(inputSeries, ()=> { StartBattleSeries(); });
         this.endBattle = endBattle;
     }
 
@@ -48,9 +54,8 @@ public class BattleSeriesManager : MonoBehaviour
     public void EndBattleSeries()
     {
         state = BattleState.end;
-        inputManager.ResetDamage();
-        spawnManager.ResetSpawn();
         this.endBattle.Invoke();
     }
     public BattleState BattleState { get { return state; } }
+    public int BaseDamage { get { return baseDamage; } }
 }

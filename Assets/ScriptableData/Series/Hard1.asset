@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af9ea6ec27e7fc44ba3dd0d72ec7e173, type: 3}
-  m_Name: Input Serie2
+  m_Name: Hard1
   m_EditorClassIdentifier: 
-  nameSerie: input serie 2
+  nameSerie: input serie 4
   inputGame:
   - {fileID: 11400000, guid: f55522596c40e9e4d8554e0347f5806b, type: 2}
-  - {fileID: 11400000, guid: f55522596c40e9e4d8554e0347f5806b, type: 2}
+  - {fileID: 11400000, guid: cc00dfc91a4199843890a214ab9d35f0, type: 2}
   - {fileID: 11400000, guid: c9513eadc8ae26149a861eb7c4b2c388, type: 2}
+  - {fileID: 11400000, guid: f55522596c40e9e4d8554e0347f5806b, type: 2}

@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baf05b4873481084e8347114eb6b9988, type: 3}
-  m_Name: Attack B
+  m_Name: Hard Attack
   m_EditorClassIdentifier: 
-  skillName: Attack B
-  cooldown: 2
-  damage: 40
+  skillName: Hard Attack
+  cooldown: 0
+  damage: 20
+  inputSeries:
+  - {fileID: 11400000, guid: f81881edf7f3671468d12cfc9bb0e08c, type: 2}
+  - {fileID: 11400000, guid: 15baa7e4837745542a40f2fc4f26dc0e, type: 2}

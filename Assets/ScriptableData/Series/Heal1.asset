@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af9ea6ec27e7fc44ba3dd0d72ec7e173, type: 3}
-  m_Name: Input Serie4
+  m_Name: Heal1
   m_EditorClassIdentifier: 
   nameSerie: input serie 4
   inputGame:

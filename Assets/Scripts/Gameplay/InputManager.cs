@@ -27,6 +27,9 @@ public class InputManager : MonoBehaviour
     {
         GoalState state = GameManager.instance.battleSeriesManager.goalManager.state;
         InputArrowPrefab currentPrefab = GameManager.instance.battleSeriesManager.spawnManager.currentInputArrowPrefab;
+        int baseDamage = GameManager.instance.battleSeriesManager.BaseDamage;
+        int totalSeries = GameManager.instance.battleSeriesManager.spawnManager.TotalSeries;
+        int damage = baseDamage / totalSeries;
         if (currentPrefab == null)
             return;
 
@@ -35,12 +38,12 @@ public class InputManager : MonoBehaviour
             currentPrefab.wasPresed = true;
             if (state == GoalState.good)
             {
-                totalDamage += 10;
+                totalDamage += Mathf.FloorToInt(damage * 0.5f);
                 goodCount++;
             }
             else if (state == GoalState.perfect)
             {
-                totalDamage += 20;
+                totalDamage += Mathf.FloorToInt(damage);
                 perfectCount++;
             }
             else
