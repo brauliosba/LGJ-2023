@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
+    private void Start()
+    {
+        AudioManager.instance.PlayMusicFade("intro");
+    }
     public void GoToIntroScene()
     {
         SceneManager.LoadScene("IntroScene");
