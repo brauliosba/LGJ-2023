@@ -42,8 +42,12 @@ public class LevelManager : MonoBehaviour
             currentCooldowns.Add(0);
         }
 
-        playerHealthBar.value = 1;
         playerHealth = player.Health;
+
+        playerHealthBar.gameObject.SetActive(false);
+        playerHealthBar.value = 0;
+        DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, 1f, 1f);
+
         enemyHealthBar.gameObject.SetActive(false);
         optionsContianer.SetActive(false);
         InstantiateEnemy();
@@ -55,11 +59,21 @@ public class LevelManager : MonoBehaviour
         {
             GameObject go = Instantiate(currentLevelEnemies[currentEnemyIndex], enemyContainer.transform);
             currentEnemy = go.GetComponent<Enemy>();
-            isEnemyAlive = true;
-            enemyHealthBar.value = 1;
-            enemyHealth = currentEnemy.Health;
-            enemyHealthBar.gameObject.SetActive(true);
-            PlayerTurn();
+            currentEnemy.StartAnimation(() => {
+                isEnemyAlive = true;
+                enemyHealth = currentEnemy.Health;
+
+                playerHealthBar.value = 0;
+                playerHealthBar.gameObject.SetActive(true);
+                DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, 1f, 1f);
+
+                enemyHealthBar.value = 0;
+                enemyHealthBar.gameObject.SetActive(true);
+                DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, 1f, 1f).OnComplete(() => 
+                {
+                    PlayerTurn();
+                });
+            });
         }
     }
 
