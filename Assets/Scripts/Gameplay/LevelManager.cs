@@ -16,9 +16,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject presicionContianer;
     [SerializeField]
-    private Slider playerHealthBar;
+    private HealthBar playerHealthBar;
     [SerializeField]
-    private Slider enemyHealthBar;
+    private HealthBar enemyHealthBar;
 
     [SerializeField]
     private List<SkillOption> skillOptions;
@@ -47,8 +47,6 @@ public class LevelManager : MonoBehaviour
         playerHealth = player.Health;
 
         playerHealthBar.gameObject.SetActive(false);
-        playerHealthBar.value = 0;
-        DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, 1f, 1f);
 
         enemyHealthBar.gameObject.SetActive(false);
         presicionContianer.SetActive(false);
@@ -66,16 +64,11 @@ public class LevelManager : MonoBehaviour
                 isEnemyAlive = true;
                 enemyHealth = currentEnemy.Health;
 
-                playerHealthBar.value = 0;
                 playerHealthBar.gameObject.SetActive(true);
-                DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, 1f, 1f);
+                playerHealthBar.HealthBarAnimation(playerHealth, 1, playerHealth, 1, null);
 
-                enemyHealthBar.value = 0;
                 enemyHealthBar.gameObject.SetActive(true);
-                DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, 1f, 1f).OnComplete(() => 
-                {
-                    PlayerTurn();
-                });
+                enemyHealthBar.HealthBarAnimation(enemyHealth, 1, enemyHealth, 1, PlayerTurn);
             });
         }
     }
@@ -95,7 +88,8 @@ public class LevelManager : MonoBehaviour
             presicionContianer.SetActive(false);
             playerHealth -= (currentEnemy.Damage-td);
             float newHealth = (float)playerHealth / player.Health;
-            DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostEnemyAction());
+            playerHealthBar.HealthBarAnimation(playerHealth, newHealth, player.Health, 1.5f, PostEnemyAction);
+
         });
 
     }
@@ -161,13 +155,13 @@ public class LevelManager : MonoBehaviour
                 
                 enemyHealth -= td;
                 float newHealth = (float)enemyHealth / currentEnemy.Health;
-                DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
+                enemyHealthBar.HealthBarAnimation(enemyHealth, newHealth, currentEnemy.Health, 1.5f, PostPlayerAction);
             }
             else
             {
                 playerHealth += player.Skills[index].Damage;
                 float newHealth = (float)playerHealth / player.Health;
-                DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
+                playerHealthBar.HealthBarAnimation(playerHealth, newHealth, player.Health, 1.5f, PostPlayerAction);
             }
         });
 
