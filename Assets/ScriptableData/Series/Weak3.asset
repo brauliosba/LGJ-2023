@@ -15,4 +15,6 @@ MonoBehaviour:
   nameSerie: debil3
   inputGame:
   - {fileID: 11400000, guid: c4b26e50f85fc2c44ae939c328028716, type: 2}
-  - {fileID: 11400000, guid: c4b26e50f85fc2c44ae939c328028716, type: 2}
+  - {fileID: 11400000, guid: c9513eadc8ae26149a861eb7c4b2c388, type: 2}
+  - {fileID: 11400000, guid: cc00dfc91a4199843890a214ab9d35f0, type: 2}
+  - {fileID: 11400000, guid: f55522596c40e9e4d8554e0347f5806b, type: 2}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf05b4873481084e8347114eb6b9988, type: 3}
+  m_Name: Medium Attack
+  m_EditorClassIdentifier: 
+  skillName: Medium Attack
+  cooldown: 2
+  damage: 60
+  inputSeries:
+  - {fileID: 11400000, guid: 53b27452ac579f644a20be2cf029a677, type: 2}
+  - {fileID: 11400000, guid: 169ed502315a81049951933c11a6290c, type: 2}
+  - {fileID: 11400000, guid: a8abca0a6b3a16849864ff6171f2b453, type: 2}
+  - {fileID: 11400000, guid: 01920ca9e60e10d49801de8c851f8341, type: 2}
+  - {fileID: 11400000, guid: d2478d1c1db6090439d3ba20fa0525c1, type: 2}

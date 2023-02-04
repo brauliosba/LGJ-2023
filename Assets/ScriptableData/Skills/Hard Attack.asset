@@ -18,3 +18,6 @@ MonoBehaviour:
   inputSeries:
   - {fileID: 11400000, guid: f81881edf7f3671468d12cfc9bb0e08c, type: 2}
   - {fileID: 11400000, guid: 15baa7e4837745542a40f2fc4f26dc0e, type: 2}
+  - {fileID: 11400000, guid: 8cb1164acfb4f4c49b6d5d366584ddc1, type: 2}
+  - {fileID: 11400000, guid: 29bb68e574cda4549a32fe3945d6a89b, type: 2}
+  - {fileID: 11400000, guid: beacd2023bbf84b48873d432dc025263, type: 2}

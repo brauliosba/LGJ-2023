@@ -301,7 +301,7 @@ MonoBehaviour:
   inputArrowPrefab: {fileID: 8280199316000437631, guid: 7be8439695850d5418899e71b9d9822a, type: 3}
   spawnGO: {fileID: 991558918}
   goalGO: {fileID: 1420816299}
-  velocity: 30
+  velocity: 60
   timeRateInputPrefabSpawn: 0.8
 --- !u!1 &501195462
 GameObject:
@@ -501,6 +501,22 @@ PrefabInstance:
     - target: {fileID: 7599399304884620544, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599399304884620575, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192132649}
+    - target: {fileID: 7599399304884620575, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActionButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599399305479349226, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192132649}
+    - target: {fileID: 7599399305479349226, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActionButtonClicked
       objectReference: {fileID: 0}
     - target: {fileID: 7599399305479349228, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -733,6 +749,14 @@ PrefabInstance:
     - target: {fileID: 7599399306434506823, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599399306465925896, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192132649}
+    - target: {fileID: 7599399306465925896, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActionButtonClicked
       objectReference: {fileID: 0}
     - target: {fileID: 7599399306465925901, guid: 3f9ebb7750f78c945b9e958cbc6c116f, type: 3}
       propertyPath: m_AnchorMax.y
