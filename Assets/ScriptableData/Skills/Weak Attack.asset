@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf05b4873481084e8347114eb6b9988, type: 3}
   m_Name: Weak Attack
   m_EditorClassIdentifier: 
-  skillName: Attack B
+  skillName: Weak Attack
   cooldown: 2
   damage: 40
+  inputSeries:
+  - {fileID: 11400000, guid: 40215edf41183084c9e5c07bcd14862d, type: 2}
+  - {fileID: 11400000, guid: 466498526aacd7848ab6be56f9889acf, type: 2}

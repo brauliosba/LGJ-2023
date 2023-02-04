@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Timers;
+using System.Linq;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Input series")]
@@ -15,9 +16,21 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float velocity;
 
     [SerializeField] private float timeRateInputPrefabSpawn;
-    public InputArrowPrefab currentInputArrowPrefab = null;
     private int currentInputInstatiate = 0;
     int totalSeries = 0;
+
+    public InputArrowPrefab currentArrowPrefab()
+    {
+        return spawnGO.GetComponentsInChildren<InputArrowPrefab>().ToList().Find(p => p.isCurrent);
+    }
+    public void UpdateCurrentArrow(InputArrowPrefab inputArrowPrefab)
+    {
+        foreach (var item in spawnGO.GetComponentsInChildren<InputArrowPrefab>())
+        {
+            item.isCurrent = false;
+        }
+        inputArrowPrefab.isCurrent = true;
+    }
     public void CreateSeriesGameplay(List<InputSerie> seriesData, System.Action startAction)
     {
 
@@ -38,7 +51,7 @@ public class SpawnManager : MonoBehaviour
     public int TotalSeries { get { return totalSeries; } }
     public void ResetSpawn()
     {
-        currentInputArrowPrefab = null;
+        //currentInputArrowPrefab = null;
        // seriesData.Clear();
         currentInputInstatiate = 0;
     }
@@ -47,7 +60,6 @@ public class SpawnManager : MonoBehaviour
         if (prefab.lastone)
         {
             GameManager.instance.battleSeriesManager.EndBattleSeries();
-            
         } 
     }
     private void LoopSeriesGamePlay()

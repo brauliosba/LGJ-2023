@@ -10,7 +10,7 @@ public class InputArrowPrefab : MonoBehaviour
     public InputGame inputGame;
     public bool wasPresed;
     public bool isMoving;
-  //  public int index;
+    public bool isCurrent;
     private float velocity;
     private RectTransform rectTransform;
     public bool lastone = false;
@@ -28,7 +28,15 @@ public class InputArrowPrefab : MonoBehaviour
         circle.color = inputGame.color;
         keyCode = inputGame.key;
     }
-
+    public void Destroy()
+    {
+        this.gameObject.SetActive(false);
+        isMoving = false;
+        isCurrent = false;
+        Vector2 position = rectTransform.anchoredPosition;
+        position.x = -2000;
+        rectTransform.anchoredPosition = position;
+    }
     private void Update()
     {
         if (isMoving)
@@ -38,10 +46,6 @@ public class InputArrowPrefab : MonoBehaviour
 
     }
 
-    public void Stop()
-    {
-        isMoving = false;
-    }
     private void Move()
     {
         Vector2 position = rectTransform.anchoredPosition;

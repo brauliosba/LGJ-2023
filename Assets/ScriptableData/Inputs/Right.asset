@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Right
   m_EditorClassIdentifier: 
   key: 275
-  rotate: 90
+  rotate: 270
   color: {r: 0.6415094, g: 0.62874925, b: 0.28081164, a: 0.91764706}

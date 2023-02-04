@@ -10,12 +10,12 @@ public class InputArrowCollider : MonoBehaviour
         if (collision.name.Contains("Destroy"))
         {
             GameManager.instance.battleSeriesManager.spawnManager.CheckIsCurrentPrefabIsTheLastOne(this.GetComponent<InputArrowPrefab>());
-            Destroy(this.gameObject);
+            this.GetComponent<InputArrowPrefab>().Destroy();
             
         }
         if (collision.name.Contains("Init"))
         {
-            GameManager.instance.battleSeriesManager.spawnManager.currentInputArrowPrefab = this.gameObject.GetComponent<InputArrowPrefab>();
+            GameManager.instance.battleSeriesManager.spawnManager.UpdateCurrentArrow(this.gameObject.GetComponent<InputArrowPrefab>());
         }
     }
 

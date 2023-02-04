@@ -53,8 +53,12 @@ public class BattleSeriesManager : MonoBehaviour
 
     public void EndBattleSeries()
     {
-        state = BattleState.end;
-        this.endBattle.Invoke();
+        Timers.TimersManager.SetTimer(this, 1f, () =>
+        {
+            state = BattleState.end;
+            this.endBattle.Invoke();
+        });
+
     }
     public BattleState BattleState { get { return state; } }
     public int BaseDamage { get { return baseDamage; } }

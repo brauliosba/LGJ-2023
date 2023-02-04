@@ -86,11 +86,14 @@ public class LevelManager : MonoBehaviour
         //enemy.attack
 
         presicionContianer.SetActive(true);
+        MovePresicionContainer(new Vector2(740, 0));
         int baseDamage = player.Skills[0].Damage;
         //index es la dificultad del enemigo
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(player.Skills[0].InputSeries,baseDamage, () => {
+            int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
+            //Debug.Log("Finish total damage " + td);
             presicionContianer.SetActive(false);
-            playerHealth -= currentEnemy.Damage;
+            playerHealth -= (currentEnemy.Damage-td);
             float newHealth = (float)playerHealth / player.Health;
             DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostEnemyAction());
         });
@@ -139,19 +142,23 @@ public class LevelManager : MonoBehaviour
 
         optionsContianer.SetActive(true);
     }
-
+    private void MovePresicionContainer(Vector2 toPosition)
+    {
+        presicionContianer.GetComponent<RectTransform>().anchoredPosition = toPosition;
+    }
     private void DoAction(int index)
     {
         //player.attack
         //player.attackAnim
+        MovePresicionContainer(Vector2.zero);
         List<InputSerie> inputSeries = player.Skills[index].InputSeries;
         int baseDamage = player.Skills[index].Damage;
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(inputSeries,baseDamage, () => {
             presicionContianer.SetActive(false);
             if (index != 2)
             {
-                int td = GameManager.instance.battleSeriesManager.inputManager.totalDamage;
-                Debug.Log("Finish total damage " + td);
+                int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
+                
                 enemyHealth -= td;
                 float newHealth = (float)enemyHealth / currentEnemy.Health;
                 DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
