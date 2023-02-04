@@ -115,6 +115,11 @@ public class LevelManager : MonoBehaviour
     private void PlayerTurn()
     {
         OpenActionMenu();
+        if (GameManager.instance.tutorialManager.IsFirstTime)
+        {
+            GameManager.instance.tutorialManager.OnTutorialCommand(null);
+        }
+        
     }
 
     private void OpenActionMenu()
