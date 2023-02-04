@@ -32,13 +32,14 @@ public class BattleSeriesManager : MonoBehaviour
     }
     System.Action endBattle;
     int baseDamage;
-    
-    public void AwakeBattleSeries(List<InputSerie> inputSeries,int baseDamage, System.Action endBattle)
+    bool isDefend;
+    public void AwakeBattleSeries(List<InputSerie> inputSeries,int baseDamage,bool isDefend, System.Action endBattle)
     {
         inputManager.ResetDamage();
         spawnManager.ResetSpawn();
 
         state = BattleState.awake;
+        this.isDefend = isDefend;
         this.baseDamage = baseDamage;
         
         spawnManager.CreateSeriesGameplay(inputSeries, ()=> { StartBattleSeries(); });
@@ -61,5 +62,6 @@ public class BattleSeriesManager : MonoBehaviour
 
     }
     public BattleState BattleState { get { return state; } }
+    public bool IsDefend { get { return isDefend; } }
     public int BaseDamage { get { return baseDamage; } }
 }

@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
 
     private void SetHealtText(int x, int total)
     {
-        Debug.Log(x);
+        //Debug.Log(x);
         healthText.text = x + "/" + total;
     }
 

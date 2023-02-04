@@ -82,7 +82,11 @@ public class LevelManager : MonoBehaviour
         MovePresicionContainer(new Vector2(740, 0));
         int baseDamage = player.Skills[0].Damage;
         //index es la dificultad del enemigo
-        GameManager.instance.battleSeriesManager.AwakeBattleSeries(player.Skills[0].InputSeries,baseDamage, () => {
+        GameManager.instance.battleSeriesManager.AwakeBattleSeries(
+            player.Skills[0].InputSeries,
+            baseDamage,
+            true,
+            () => {
             int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
             //Debug.Log("Finish total damage " + td);
             presicionContianer.SetActive(false);
@@ -142,12 +146,14 @@ public class LevelManager : MonoBehaviour
     }
     private void DoAction(int index)
     {
-        //player.attack
-        //player.attackAnim
         MovePresicionContainer(Vector2.zero);
         List<InputSerie> inputSeries = player.Skills[index].InputSeries;
         int baseDamage = player.Skills[index].Damage;
-        GameManager.instance.battleSeriesManager.AwakeBattleSeries(inputSeries,baseDamage, () => {
+        GameManager.instance.battleSeriesManager.AwakeBattleSeries(
+            inputSeries,
+            baseDamage,
+            false, 
+            () => {
             presicionContianer.SetActive(false);
             if (index != 2)
             {

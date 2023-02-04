@@ -11,10 +11,12 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Transform feedbackInput;
     private int totalDamage = 0;
     private int goodCount = 0;
+    private int missCount = 0;
     private int perfectCount = 0;
     public int GetTotalDamage()
     {
         Debug.Log("Finish total damage " + totalDamage);
+        Debug.Log("miss count " + missCount);
         Debug.Log("good count " + goodCount);
         Debug.Log("perfect count " + perfectCount);
         return totalDamage;
@@ -36,6 +38,7 @@ public class InputManager : MonoBehaviour
         GoalState state = GameManager.instance.battleSeriesManager.goalManager.state;
         InputArrowPrefab currentPrefab = GameManager.instance.battleSeriesManager.spawnManager.currentArrowPrefab();
         int baseDamage = GameManager.instance.battleSeriesManager.BaseDamage;
+        bool isDefend = GameManager.instance.battleSeriesManager.IsDefend;
         int totalSeries = GameManager.instance.battleSeriesManager.spawnManager.TotalSeries;
         int damage = baseDamage / totalSeries;
         if (currentPrefab == null)
@@ -46,18 +49,35 @@ public class InputManager : MonoBehaviour
             currentPrefab.wasPresed = true;
             if (state == GoalState.good)
             {
-                totalDamage += Mathf.FloorToInt(damage * 0.5f);
+                if (!isDefend)
+                {
+                    totalDamage += Mathf.FloorToInt(damage * 0.5f);
+                }
+                else
+                {
+                    totalDamage += Mathf.FloorToInt(damage * 0.66f);
+                }
+                    
                 goodCount++;
                 FeedbackInput("Good!!");
             }
             else if (state == GoalState.perfect)
             {
-                totalDamage += Mathf.FloorToInt(damage);
+                if (!isDefend)
+                {
+                    totalDamage += Mathf.FloorToInt(damage);
+                }
+                else
+                {
+                    totalDamage += Mathf.FloorToInt(damage * 0.33f);
+                }
+                                
                 perfectCount++;
                 FeedbackInput("PERFECT!!");
             }
             else
             {
+                missCount++;
                 print("Miss");
             }
             GameManager.instance.battleSeriesManager.spawnManager.CheckIsCurrentPrefabIsTheLastOne(currentPrefab);
