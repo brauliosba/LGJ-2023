@@ -67,6 +67,7 @@ public class InputManager : MonoBehaviour
                     
                 goodCount++;
                 FeedbackInput("Good!!");
+                AudioManager.instance.PlaySFX("good");
             }
             else if (state == GoalState.perfect)
             {
@@ -81,10 +82,12 @@ public class InputManager : MonoBehaviour
                                 
                 perfectCount++;
                 FeedbackInput("PERFECT!!");
+                AudioManager.instance.PlaySFX("perfect");
             }
             else
             {
                 missCount++;
+                AudioManager.instance.PlaySFX("miss");
                 print("Miss");
             }
             GameManager.instance.battleSeriesManager.spawnManager.CheckIsCurrentPrefabIsTheLastOne(currentPrefab);

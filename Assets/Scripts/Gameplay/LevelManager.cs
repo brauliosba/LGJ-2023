@@ -84,7 +84,7 @@ public class LevelManager : MonoBehaviour
         
         //index es la dificultad del enemigo
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(
-            player.Skills[3].InputSeries,
+            player.Skills[c].InputSeries,
             baseDamage,
             true,
             () => {
