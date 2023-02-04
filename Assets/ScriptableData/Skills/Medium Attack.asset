@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medium Attack
   m_EditorClassIdentifier: 
   skillName: Medium Attack
-  cooldown: 2
+  cooldown: 0
   damage: 60
   inputSeries:
   - {fileID: 11400000, guid: 53b27452ac579f644a20be2cf029a677, type: 2}
