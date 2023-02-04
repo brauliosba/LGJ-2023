@@ -21,6 +21,8 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this);
+        PlayerPrefs.SetFloat("MusicVolume", 1f);
+        PlayerPrefs.SetFloat("SFXVolume", 1f);
     }
 
     private SoundScriptable GetSoundScriptable(string name)
