@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce45d218010e3534c9ce6f0befa258b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   skills:
   - {fileID: 11400000, guid: ebf251c43b15af34bb9b74c9f49cf60b, type: 2}
   - {fileID: 11400000, guid: 1c9a87ffaed7dbf4d8aabff3d4017291, type: 2}
