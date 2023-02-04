@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
   m_sharedMaterial: {fileID: 5428376729617375134, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 545363981}
   - component: {fileID: 545363980}
   m_Layer: 0
-  m_Name: GameOverManager
+  m_Name: CreditsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 1977898951}
   - component: {fileID: 1977898950}
   m_Layer: 5
-  m_Name: CloseGame
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,7 +1134,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 545363980}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: Close
+        m_MethodName: GoMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

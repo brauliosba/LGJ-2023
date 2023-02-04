@@ -240,7 +240,7 @@ public class LevelManager : MonoBehaviour
         }
         Timers.TimersManager.SetTimer(this, 1f, () => 
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Credits");
         });
     }
 }
