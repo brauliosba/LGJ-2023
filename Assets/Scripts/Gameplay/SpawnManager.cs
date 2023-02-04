@@ -45,7 +45,9 @@ public class SpawnManager : MonoBehaviour
     {
         if (prefab.lastone)
         {
-            print("end");
+            int td = GameManager.instance.battleSeriesManager.inputManager.totalDamage;
+            Debug.Log("Finish total damage " + td);
+            //print("end");
         } 
     }
     private void LoopSeriesGamePlay()
@@ -56,8 +58,6 @@ public class SpawnManager : MonoBehaviour
         currentInputInstatiate++;
         if (currentInputInstatiate > seriesGameplay.length - 1)
         {
-            int td = GameManager.instance.battleSeriesManager.inputManager.totalDamage;
-            Debug.Log("Finish total damage " + td);
             
             return;
         }
