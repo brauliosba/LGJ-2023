@@ -55,7 +55,7 @@ public class InputManager : MonoBehaviour
                 }
                 else
                 {
-                    totalDamage += Mathf.FloorToInt(damage * 0.66f);
+                    totalDamage += Mathf.FloorToInt(damage * 0.33f);
                 }
                     
                 goodCount++;
@@ -69,7 +69,7 @@ public class InputManager : MonoBehaviour
                 }
                 else
                 {
-                    totalDamage += Mathf.FloorToInt(damage * 0.33f);
+                    totalDamage += Mathf.FloorToInt(damage * 0.66f);
                 }
                                 
                 perfectCount++;

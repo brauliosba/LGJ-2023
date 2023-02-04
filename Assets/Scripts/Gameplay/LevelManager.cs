@@ -65,7 +65,7 @@ public class LevelManager : MonoBehaviour
                 enemyHealth = currentEnemy.Health;
 
                 playerHealthBar.gameObject.SetActive(true);
-                playerHealthBar.HealthBarAnimation(playerHealth, 1, playerHealth, 1, null);
+                playerHealthBar.HealthBarAnimation(playerHealth, 1, player.Health, 1, null);
 
                 enemyHealthBar.gameObject.SetActive(true);
                 enemyHealthBar.HealthBarAnimation(enemyHealth, 1, enemyHealth, 1, PlayerTurn);
@@ -90,7 +90,7 @@ public class LevelManager : MonoBehaviour
             int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
             //Debug.Log("Finish total damage " + td);
             presicionContianer.SetActive(false);
-            playerHealth -= (currentEnemy.Damage-td);
+            playerHealth = playerHealth - (currentEnemy.Damage - td) < 0 ? 0 : playerHealth - (currentEnemy.Damage - td);
             float newHealth = (float)playerHealth / player.Health;
             playerHealthBar.HealthBarAnimation(playerHealth, newHealth, player.Health, 1.5f, PostEnemyAction);
 
@@ -159,13 +159,16 @@ public class LevelManager : MonoBehaviour
             {
                 int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
                 
-                enemyHealth -= td;
+                enemyHealth = (enemyHealth - td) < 0 ? 0 : enemyHealth - td;
+
                 float newHealth = (float)enemyHealth / currentEnemy.Health;
                 enemyHealthBar.HealthBarAnimation(enemyHealth, newHealth, currentEnemy.Health, 1.5f, PostPlayerAction);
             }
             else
             {
-                playerHealth += player.Skills[index].Damage;
+               int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
+
+                playerHealth = (playerHealth + td) > 100 ? 100 : playerHealth + td;
                 float newHealth = (float)playerHealth / player.Health;
                 playerHealthBar.HealthBarAnimation(playerHealth, newHealth, player.Health, 1.5f, PostPlayerAction);
             }
