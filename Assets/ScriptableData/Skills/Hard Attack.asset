@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Hard Attack
   m_EditorClassIdentifier: 
   skillName: Hard Attack
-  cooldown: 0
-  damage: 20
+  cooldown: 2
+  damage: 80
   inputSeries:
   - {fileID: 11400000, guid: f81881edf7f3671468d12cfc9bb0e08c, type: 2}
   - {fileID: 11400000, guid: 15baa7e4837745542a40f2fc4f26dc0e, type: 2}

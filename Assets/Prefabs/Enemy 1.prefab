@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   damage: 60
-  health: 180
+  health: 200
