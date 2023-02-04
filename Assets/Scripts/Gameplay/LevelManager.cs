@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
         if (!isEnemyAlive)
         {
             GameObject go = Instantiate(currentLevelEnemies[currentEnemyIndex], enemyContainer.transform);
+            GameManager.instance.animationManager.SetEnemy(go);
             currentEnemy = go.GetComponent<Enemy>();
             currentEnemy.StartAnimation(() => {
                 isEnemyAlive = true;
@@ -85,6 +86,7 @@ public class LevelManager : MonoBehaviour
         //index es la dificultad del enemigo
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(
             player.Skills[c].InputSeries,
+            3,
             baseDamage,
             true,
             () => {
@@ -157,6 +159,7 @@ public class LevelManager : MonoBehaviour
         int baseDamage = player.Skills[index].Damage;
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(
             inputSeries,
+            index,
             baseDamage,
             false, 
             () => {

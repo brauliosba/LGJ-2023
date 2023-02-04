@@ -17,7 +17,7 @@ public class BattleSeriesManager : MonoBehaviour
     public GoalManager goalManager;
     public InputManager inputManager;
     private System.Action endBattle;
-    
+    private int indexcommand;
     private void Start()
     {
         state = BattleState.idle;
@@ -26,8 +26,9 @@ public class BattleSeriesManager : MonoBehaviour
     {
     }
     
-    public void AwakeBattleSeries(List<InputSerie> inputSeries,int baseDamage,bool isDefend, System.Action endBattle)
+    public void AwakeBattleSeries(List<InputSerie> inputSeries,int index,int baseDamage,bool isDefend, System.Action endBattle)
     {
+        this.indexcommand = index;
         inputManager.ResetDamage();
         spawnManager.ResetSpawn();
         System.Action awakeAction = () =>
@@ -58,8 +59,12 @@ public class BattleSeriesManager : MonoBehaviour
     {
         Timers.TimersManager.SetTimer(this, 1f, () =>
         {
-            state = BattleState.end;
-            this.endBattle.Invoke();
+            GameManager.instance.animationManager.ChooseAnimation(this.indexcommand, ()=> 
+            {
+                state = BattleState.end;
+                this.endBattle.Invoke();
+            });
+            
         });
 
     }
