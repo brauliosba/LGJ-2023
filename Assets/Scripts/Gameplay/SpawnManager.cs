@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
 
     public void CreateSeriesGameplay(System.Action startAction)
     {
+
         int x = Random.Range(0, seriesData.Count);
         seriesData[x].Print();
         seriesGameplay = Instantiate(seriesData[x]);
@@ -38,7 +39,7 @@ public class SpawnManager : MonoBehaviour
     public void ResetSpawn()
     {
         currentInputArrowPrefab = null;
-        seriesData.Clear();
+       // seriesData.Clear();
         currentInputInstatiate = 0;
     }
     public void CheckIsCurrentPrefabIsTheLastOne(InputArrowPrefab prefab)
@@ -47,7 +48,8 @@ public class SpawnManager : MonoBehaviour
         {
             int td = GameManager.instance.battleSeriesManager.inputManager.totalDamage;
             Debug.Log("Finish total damage " + td);
-            //print("end");
+            GameManager.instance.battleSeriesManager.EndBattleSeries();
+            
         } 
     }
     private void LoopSeriesGamePlay()

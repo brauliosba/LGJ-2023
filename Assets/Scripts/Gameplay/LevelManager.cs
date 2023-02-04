@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject optionsContianer;
     [SerializeField]
+    private GameObject presicionContianer;
+    [SerializeField]
     private Slider playerHealthBar;
     [SerializeField]
     private Slider enemyHealthBar;
@@ -49,6 +51,7 @@ public class LevelManager : MonoBehaviour
         DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, 1f, 1f);
 
         enemyHealthBar.gameObject.SetActive(false);
+        presicionContianer.SetActive(false);
         optionsContianer.SetActive(false);
         InstantiateEnemy();
     }
@@ -81,10 +84,13 @@ public class LevelManager : MonoBehaviour
     {
         //player.deffend
         //enemy.attack
-
-        playerHealth -= currentEnemy.Damage;
-        float newHealth = (float)playerHealth / player.Health;
-        DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostEnemyAction());
+        presicionContianer.SetActive(true);
+        GameManager.instance.battleSeriesManager.AwakeBattleSeries(0, () => {
+            presicionContianer.SetActive(false);
+            playerHealth -= currentEnemy.Damage;
+            float newHealth = (float)playerHealth / player.Health;
+            DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostEnemyAction());
+        });
 
     }
 
@@ -136,18 +142,22 @@ public class LevelManager : MonoBehaviour
         //player.attack
         //player.attackAnim
 
-        if (index != 2)
-        {
-            enemyHealth -= player.Skills[index].Damage;
-            float newHealth = (float)enemyHealth / currentEnemy.Health;
-            DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());        
-        }
-        else
-        {
-            playerHealth += player.Skills[index].Damage;
-            float newHealth = (float)playerHealth / player.Health;
-            DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
-        }
+        GameManager.instance.battleSeriesManager.AwakeBattleSeries(index, () => {
+            presicionContianer.SetActive(false);
+            if (index != 2)
+            {
+                enemyHealth -= player.Skills[index].Damage;
+                float newHealth = (float)enemyHealth / currentEnemy.Health;
+                DOTween.To(() => enemyHealthBar.value, x => enemyHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
+            }
+            else
+            {
+                playerHealth += player.Skills[index].Damage;
+                float newHealth = (float)playerHealth / player.Health;
+                DOTween.To(() => playerHealthBar.value, x => playerHealthBar.value = x, newHealth, 1.5f).SetEase(Ease.InQuad).OnComplete(() => PostPlayerAction());
+            }
+        });
+
     }
 
     private void PostPlayerAction()
@@ -176,6 +186,7 @@ public class LevelManager : MonoBehaviour
             currentCooldowns[index] = player.Skills[index].Cooldown;
             DoAction(index);
             optionsContianer.SetActive(false);
+            presicionContianer.SetActive(true);
         }
     }
 }

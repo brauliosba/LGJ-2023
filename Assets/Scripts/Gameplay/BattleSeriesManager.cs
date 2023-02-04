@@ -23,15 +23,20 @@ public class BattleSeriesManager : MonoBehaviour
     }
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AwakeBattleSeries();
+            AwakeBattleSeries(1);
         }
+        */
     }
-    public void AwakeBattleSeries()
+    System.Action endBattle;
+    public void AwakeBattleSeries(int dificulty, System.Action endBattle)
     {
         state = BattleState.awake;
+        
         spawnManager.CreateSeriesGameplay(()=> { StartBattleSeries(); });
+        this.endBattle = endBattle;
     }
 
     public void StartBattleSeries()
@@ -45,6 +50,7 @@ public class BattleSeriesManager : MonoBehaviour
         state = BattleState.end;
         inputManager.ResetDamage();
         spawnManager.ResetSpawn();
+        this.endBattle.Invoke();
     }
     public BattleState BattleState { get { return state; } }
 }
