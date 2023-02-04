@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/todelete/Test-Simple.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 0c99f0dd6c174ea46a2d7ee34cb00f6e
+  - enabled: 1
+    path: Assets/Scenes/LevelTesting -dev-Y.unity
+    guid: a24c68f9447722d4ab89856504b9164b
   m_configObjects: {}
