@@ -169,7 +169,7 @@ public class LevelManager : MonoBehaviour
             {
                int td = GameManager.instance.battleSeriesManager.inputManager.GetTotalDamage();
 
-                playerHealth = (playerHealth + td) > 100 ? 100 : playerHealth + td;
+                playerHealth = (playerHealth + td) > player.Health ? player.Health : playerHealth + td;
                 float newHealth = (float)playerHealth / player.Health;
                 playerHealthBar.HealthBarAnimation(playerHealth, newHealth, player.Health, 1.5f, PostPlayerAction);
             }
