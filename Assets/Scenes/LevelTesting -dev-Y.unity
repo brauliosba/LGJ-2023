@@ -469,9 +469,9 @@ MonoBehaviour:
   health: 200
   skills:
   - {fileID: 11400000, guid: e12b8ba59a0c876449bccff245215d9f, type: 2}
-  - {fileID: 11400000, guid: 1c9a87ffaed7dbf4d8aabff3d4017291, type: 2}
-  - {fileID: 11400000, guid: 6f56751ae79c3d04fa3fcd80ca3a044d, type: 2}
   - {fileID: 11400000, guid: ebf251c43b15af34bb9b74c9f49cf60b, type: 2}
+  - {fileID: 11400000, guid: 6f56751ae79c3d04fa3fcd80ca3a044d, type: 2}
+  - {fileID: 11400000, guid: 1c9a87ffaed7dbf4d8aabff3d4017291, type: 2}
 --- !u!1001 &671044526
 PrefabInstance:
   m_ObjectHideFlags: 0
