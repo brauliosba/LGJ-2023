@@ -73,8 +73,10 @@ public class InputManager : MonoBehaviour
     public void FeedbackInput(string text)
     {
         GameObject prefab = Instantiate(feedbackPrefab, feedbackInput);
-        prefab.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        RectTransform rectTransform = prefab.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = Vector2.zero;
         prefab.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = text;
+        rectTransform.DOAnchorPosY(-120f, 0.5f);
         //animacion para arriba DOTWEEN
         Destroy(prefab, 0.5f);
     }
