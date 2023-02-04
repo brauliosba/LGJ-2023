@@ -34,8 +34,13 @@ public class LevelManager : MonoBehaviour
     private int playerHealth;
     private int enemyHealth;
 
+    private void Update()
+    {
+
+    }
     private void Start()
     {
+        AudioManager.instance.PlayMusicFade("intro", true);
         currentLevelEnemies = currentLevel.Enemies;
 
         for (int i = 0; i < player.Skills.Count; i++)

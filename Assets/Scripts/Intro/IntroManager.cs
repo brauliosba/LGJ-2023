@@ -114,6 +114,7 @@ public class IntroManager : MonoBehaviour
         else
         {
             isTextAnimated = true;
+            AudioManager.instance.StopMusic();
             SceneManager.LoadScene("LevelTesting -dev-Y");
         }
     }
