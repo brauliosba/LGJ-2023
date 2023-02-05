@@ -13,8 +13,8 @@ public class AnimationManager : MonoBehaviour
     {
         enemy = prefab;
     }
-    int standxpos = -522;
-    int playerxpos = -522;
+    int standxpos = -544;
+    int playerxpos = -548;
     int enemyxpos = -400;
     public void PrepAnimation()
     {
@@ -28,6 +28,8 @@ public class AnimationManager : MonoBehaviour
         RectTransform enemyRectTransform = enemy.GetComponent<RectTransform>();
 
         Animator enemyAnimator = enemy.GetComponent<Animator>();
+        Animator standAnimator = stand.GetComponent<Animator>();
+        Animator playerAnimator = player.GetComponent<Animator>();
         //enemyAnimator.Play("attack");
 
         Image enemyImage = enemy.GetComponent<Image>();
@@ -38,12 +40,13 @@ public class AnimationManager : MonoBehaviour
         {
             case 0:
                 print("weak anim");
-                standRectTransform.DOAnchorPosX(standxpos+200, timemove).OnComplete(() => 
-                {
-                    AudioManager.instance.PlaySFX("punch");
-                });
+                standAnimator.Play("weakattack");
+                //playerAnimator.Play("weakattack");
+
+
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
+                    AudioManager.instance.PlaySFX("punch");
                     enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
                     DOTween.Sequence().AppendInterval(0.2f).Append(enemyImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo));
                 });
@@ -51,6 +54,7 @@ public class AnimationManager : MonoBehaviour
                 break;
             case 1:
                 print("hard anim");
+
                 standRectTransform.DOAnchorPosX(standxpos + 200, timemove).OnComplete(() =>
                 {
                     AudioManager.instance.PlaySFX("punch");
@@ -61,13 +65,18 @@ public class AnimationManager : MonoBehaviour
                 });
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
-                    enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
-                    DOTween.Sequence().AppendInterval(0.2f).Append(enemyImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo));
+                    standAnimator.Play("strongattack");
+                    playerAnimator.Play("strongattack");
+                    Timers.TimersManager.SetTimer(this, 0.15f, () =>
+                    {
+                        enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
+                        DOTween.Sequence().AppendInterval(0.2f).Append(enemyImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo));
+                    });
                 });
                 break;
             case 2:
                 print("heal animation");
-                standRectTransform.DOScale(1.2f, 0.25f).OnComplete(() => standRectTransform.DOScale(1f, 0.25f));
+                standRectTransform.DOAnchorPosY(-20f,0.25f).OnComplete(() => standRectTransform.DOAnchorPosY(8f, 0.25f));
                 AudioManager.instance.PlaySFX("heal");
                 break;
             case 3:
