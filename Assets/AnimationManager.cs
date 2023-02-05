@@ -29,7 +29,10 @@ public class AnimationManager : MonoBehaviour
         {
             case 0:
                 print("weak anim");
-                standRectTransform.DOAnchorPosX(standxpos+200, timemove);
+                standRectTransform.DOAnchorPosX(standxpos+200, timemove).OnComplete(() => 
+                {
+                    AudioManager.instance.PlaySFX("punch");
+                });
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
                     enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
@@ -39,8 +42,14 @@ public class AnimationManager : MonoBehaviour
                 break;
             case 1:
                 print("hard anim");
-                standRectTransform.DOAnchorPosX(standxpos + 200, timemove);
-                playerRectTransform.DOAnchorPosX(playerxpos + 200, timemove);
+                standRectTransform.DOAnchorPosX(standxpos + 200, timemove).OnComplete(() =>
+                {
+                    AudioManager.instance.PlaySFX("punch");
+                });
+                playerRectTransform.DOAnchorPosX(playerxpos + 200, timemove).OnComplete(() =>
+                {
+                    AudioManager.instance.PlaySFX("knife");
+                });
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
                     enemyRectTransform.DOAnchorPosX(enemyxpos + 100, timemove);
