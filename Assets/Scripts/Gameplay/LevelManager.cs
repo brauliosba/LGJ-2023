@@ -36,7 +36,12 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-
+        /*
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameOver(true);
+        }
+        */
     }
     private void Start()
     {
@@ -237,11 +242,11 @@ public class LevelManager : MonoBehaviour
         endgameContainer.SetActive(true);
         if (playerWin)
         {
-            endgameTxt.text = "You win";
+            endgameTxt.text = "Ganaste !!";
         }
         else
         {
-            endgameTxt.text = "Enemy win";
+            endgameTxt.text = "Perdiste";
         }
         Timers.TimersManager.SetTimer(this, 1f, () => 
         {

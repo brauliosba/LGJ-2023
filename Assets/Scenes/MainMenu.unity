@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close
+  m_text: Cerrar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
   m_sharedMaterial: {fileID: 5428376729617375134, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: Creditos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
   m_sharedMaterial: {fileID: 5428376729617375134, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Game
+  m_text: Comenzar Juego
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
   m_sharedMaterial: {fileID: 5428376729617375134, guid: 1b2e92e59b5dadd48b3b5c2c3c3ace7a, type: 2}
