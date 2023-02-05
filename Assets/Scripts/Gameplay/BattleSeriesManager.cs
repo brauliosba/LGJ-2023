@@ -52,6 +52,7 @@ public class BattleSeriesManager : MonoBehaviour
     public void StartBattleSeries()
     {
         state = BattleState.started;
+        
     }
 
 

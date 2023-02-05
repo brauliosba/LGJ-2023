@@ -16,6 +16,11 @@ public class AnimationManager : MonoBehaviour
     int standxpos = -540;
     int playerxpos = -400;
     int enemyxpos = -400;
+    public void PrepAnimation()
+    {
+        Animator enemyAnimator = enemy.GetComponent<Animator>();
+        enemyAnimator.Play("prep");
+    }
     public void ChooseAnimation(int index, System.Action endAttack)
     {
         RectTransform standRectTransform = stand.GetComponent<RectTransform>();
@@ -23,6 +28,7 @@ public class AnimationManager : MonoBehaviour
         RectTransform enemyRectTransform = enemy.GetComponent<RectTransform>();
 
         Animator enemyAnimator = enemy.GetComponent<Animator>();
+        //enemyAnimator.Play("attack");
 
         Image enemyImage = enemy.GetComponent<Image>();
         Image playerImage = player.GetComponent<Image>();
@@ -70,7 +76,7 @@ public class AnimationManager : MonoBehaviour
                 enemyRectTransform.DOAnchorPosX(enemyxpos - 200, timemove);
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
-                    enemyAnimator.Play("prep");
+                    enemyAnimator.Play("attack");
                     Timers.TimersManager.SetTimer(this, timemove, () =>
                     {
                         standRectTransform.DOAnchorPosX(standxpos - 100, timemove);
@@ -91,6 +97,7 @@ public class AnimationManager : MonoBehaviour
 
         Timers.TimersManager.SetTimer(this, timemove*3, () =>
         {
+            enemyAnimator.Play("idle");
             standRectTransform.DOAnchorPosX(standxpos, timemove);
             playerRectTransform.DOAnchorPosX(playerxpos, timemove);
             enemyRectTransform.DOAnchorPosX(enemyxpos, timemove);

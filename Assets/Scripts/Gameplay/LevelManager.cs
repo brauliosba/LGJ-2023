@@ -100,7 +100,8 @@ public class LevelManager : MonoBehaviour
         MovePresicionContainer(new Vector2(740, 0));
         int c = currentEnemyIndex == 1 ? 3 : currentEnemyIndex;
         int baseDamage = player.Skills[c].Damage;
-        print(" variable c" + c);
+        
+        GameManager.instance.animationManager.PrepAnimation();
         //index es la dificultad del enemigo
         GameManager.instance.battleSeriesManager.AwakeBattleSeries(
             player.Skills[c].InputSeries,
