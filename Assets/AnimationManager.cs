@@ -88,6 +88,7 @@ public class AnimationManager : MonoBehaviour
                     enemyAnimator.Play("attack");
                     Timers.TimersManager.SetTimer(this, timemove, () =>
                     {
+                        AudioManager.instance.PlaySFX("punch");
                         standRectTransform.DOAnchorPosX(standxpos - 100, timemove);
                         playerRectTransform.DOAnchorPosX(playerxpos - 100, timemove);
                         DOTween.Sequence().AppendInterval(0.2f).AppendCallback(() =>
