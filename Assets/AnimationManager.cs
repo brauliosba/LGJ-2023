@@ -21,6 +21,9 @@ public class AnimationManager : MonoBehaviour
         RectTransform standRectTransform = stand.GetComponent<RectTransform>();
         RectTransform playerRectTransform = player.GetComponent<RectTransform>();
         RectTransform enemyRectTransform = enemy.GetComponent<RectTransform>();
+
+        Animator enemyAnimator = enemy.GetComponent<Animator>();
+
         Image enemyImage = enemy.GetComponent<Image>();
         Image playerImage = player.GetComponent<Image>();
         Image standImage = stand.GetComponent<Image>();
@@ -62,17 +65,23 @@ public class AnimationManager : MonoBehaviour
                 break;
             case 3:
                 print("def animation");
+
                 enemyRectTransform.DOAnchorPosX(enemyxpos - 200, timemove);
                 Timers.TimersManager.SetTimer(this, timemove, () =>
                 {
-                    standRectTransform.DOAnchorPosX(standxpos - 100, timemove);
-                    playerRectTransform.DOAnchorPosX(playerxpos - 100, timemove);
-                    DOTween.Sequence().AppendInterval(0.2f).AppendCallback(() => 
-                    { 
-                        playerImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo); 
-                        standImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo);
+                    enemyAnimator.Play("prep");
+                    Timers.TimersManager.SetTimer(this, timemove, () =>
+                    {
+                        standRectTransform.DOAnchorPosX(standxpos - 100, timemove);
+                        playerRectTransform.DOAnchorPosX(playerxpos - 100, timemove);
+                        DOTween.Sequence().AppendInterval(0.2f).AppendCallback(() =>
+                        {
+                            playerImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo);
+                            standImage.DOFade(0.3f, 0.3f).SetLoops(4, LoopType.Yoyo);
+                        });
                     });
                 });
+                
                 break;
 
             default:

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New_Level
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 8126905868082044109, guid: e9a77230075e4b54c9b77190fd131728, type: 3}
   - {fileID: 8126905868082044109, guid: 2deab2f4db601ba4497e6e4139b5c0c7, type: 3}
   - {fileID: 8126905868082044109, guid: abfe369e70f1e4c45bdd4b7661462958, type: 3}
-  - {fileID: 8126905868082044109, guid: e9a77230075e4b54c9b77190fd131728, type: 3}
