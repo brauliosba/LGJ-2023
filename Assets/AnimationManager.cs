@@ -107,6 +107,8 @@ public class AnimationManager : MonoBehaviour
 
         Timers.TimersManager.SetTimer(this, timemove*3, () =>
         {
+            playerAnimator.Play("idle");
+            standAnimator.Play("idle");
             enemyAnimator.Play("idle");
             standRectTransform.DOAnchorPosX(standxpos, timemove);
             playerRectTransform.DOAnchorPosX(playerxpos, timemove);
