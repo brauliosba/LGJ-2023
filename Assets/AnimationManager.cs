@@ -61,6 +61,7 @@ public class AnimationManager : MonoBehaviour
                 break;
             case 2:
                 print("heal animation");
+                standRectTransform.DOScale(1.2f, 0.25f).OnComplete(() => standRectTransform.DOScale(1f, 0.25f));
                 AudioManager.instance.PlaySFX("heal");
                 break;
             case 3:
