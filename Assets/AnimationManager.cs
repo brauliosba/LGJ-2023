@@ -58,6 +58,7 @@ public class AnimationManager : MonoBehaviour
                 break;
             case 2:
                 print("heal animation");
+                AudioManager.instance.PlaySFX("heal");
                 break;
             case 3:
                 print("def animation");

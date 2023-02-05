@@ -434,6 +434,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 099f84e3d21cf874fb68efb1632f18d1, type: 2}
   - {fileID: 11400000, guid: a58aceaf47c8dd84688e1b9ea6ec71f5, type: 2}
   - {fileID: 11400000, guid: e6de30d3203cf5949a9a7b0578a9585b, type: 2}
+  - {fileID: 11400000, guid: cb16f81247107684892259945966c719, type: 2}
   musicAudioSource: {fileID: 4611883345442662440}
   soundAudioSourceList:
   - {fileID: 4611883345234318728}

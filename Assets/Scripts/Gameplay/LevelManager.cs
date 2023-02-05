@@ -33,15 +33,15 @@ public class LevelManager : MonoBehaviour
     private List<int> currentCooldowns = new List<int>();
     private int playerHealth;
     private int enemyHealth;
-
+    public bool isTesting;
     private void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (isTesting && Input.GetKeyDown(KeyCode.Space))
         {
             GameOver(true);
         }
-        */
+        
     }
     private void Start()
     {
@@ -248,9 +248,23 @@ public class LevelManager : MonoBehaviour
         {
             endgameTxt.text = "Perdiste";
         }
+        /*
         Timers.TimersManager.SetTimer(this, 1f, () => 
         {
             SceneManager.LoadScene("Credits");
         });
+        */
+    }
+
+    public void GoCredits()
+    {
+        AudioManager.instance.StopMusic();
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void Restart()
+    {
+        AudioManager.instance.StopMusic();
+        SceneManager.LoadScene("LevelTesting -dev-Y");
     }
 }
