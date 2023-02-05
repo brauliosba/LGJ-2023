@@ -247,7 +247,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1589244030}
         m_TargetAssemblyTypeName: IntroManager, Assembly-CSharp
-        m_MethodName: NextLine
+        m_MethodName: OnNextImageButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -681,11 +681,11 @@ MonoBehaviour:
   backgroundImage: {fileID: 1702000032}
   foregroundImage: {fileID: 517367690}
   mainText: {fileID: 1343699690}
-  backgounds:
+  backgrounds:
   - {fileID: 21300000, guid: 6736e9d9eb5ff6046beb55af77361e1f, type: 3}
-  - {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
-  - {fileID: 21300000, guid: 3a0c527d7f890d64a9b56b086e6e766a, type: 3}
-  - {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  - {fileID: 21300000, guid: f9d3dcd4c4397a44ebf833c134a04b71, type: 3}
+  - {fileID: 21300000, guid: 6736e9d9eb5ff6046beb55af77361e1f, type: 3}
+  - {fileID: 21300000, guid: f9d3dcd4c4397a44ebf833c134a04b71, type: 3}
   dialogues:
   - "\xC9rase una vez, un chef muy amado por todo el mundo. \xA1El chef Oligo! Era
     due\xF1o de un restaurante muy popular, con la comida m\xE1s deliciosa que podr\xEDas
@@ -696,11 +696,6 @@ MonoBehaviour:
     se vengaban y le daban vida a sus hermanas."
   - "\xBFPero qu\xE9 es eso? Rudy, la ruda, viene a defender a Oligo de su horrible
     destino. Es hora de empezar esta batalla variopinto.\r\n"
-  dialogueIndices:
-  - indices: 34000000100000002a0000003000000028000000
-  - indices: 3400000035000000
-  - indices: 15000000350000002c000000
-  - indices: 12000000400000002c000000
 --- !u!4 &1589244031
 Transform:
   m_ObjectHideFlags: 0

@@ -22,19 +22,14 @@ public class IntroManager : MonoBehaviour
     private TMP_Text mainText;
 
     [SerializeField]
-    private List<Sprite> backgounds;
+    private List<Sprite> backgrounds;
     [TextArea(3,4)]
     [SerializeField]
     private List<string> dialogues;
-    [SerializeField]
-    private List<DialogueIndex> dialogueIndices;
 
-    private int backgroundIndex = 0;
-    private bool isTextAnimated = false;
-    private int indice = 0;
-    private int currentIndex = 0;
     private int currentLineIndex = 0;
     private int currentBackgroundIndex = 0;
+    private Coroutine textCoroutine;
 
     private void Start()
     {
@@ -42,49 +37,47 @@ public class IntroManager : MonoBehaviour
         ChangeBackground();
     }
 
-    public void NextLine()
+    public void OnNextImageButtonClicked()
     {
-        if (!isTextAnimated)
+        if (textCoroutine != null)
         {
-            if (currentIndex < dialogueIndices[currentLineIndex].indices.Count)
+            StopCoroutine(textCoroutine);
+            textCoroutine = null;
+            mainText.text = dialogues[currentLineIndex];
+        }
+        else 
+        { 
+            if (currentBackgroundIndex < backgrounds.Count)
             {
-                string line = dialogues[currentLineIndex];
-                StartCoroutine(_TextAnimation(indice, dialogueIndices[currentLineIndex].indices[currentIndex] + indice, line, mainText));
-                indice += dialogueIndices[currentLineIndex].indices[currentIndex];
-                currentIndex++;
-            }
-            else
-            {
-                isTextAnimated = true;
-                currentIndex = 0;
-                indice = 0;
                 currentLineIndex++;
                 currentBackgroundIndex++;
                 ChangeBackground();
             }
+            else
+            {
+                AudioManager.instance.StopMusic();
+                SceneManager.LoadScene("LevelTesting -dev-Y");
+            }
         }
     }
 
-    private IEnumerator _TextAnimation(int previousIndex, int lastIndex, string line, TMP_Text text)
+    private IEnumerator _TextAnimation(string line, TMP_Text text)
     {
-        isTextAnimated = true;
         text.text = "";
         
-        for (int i = previousIndex; i < lastIndex; i++)
+        for (int i = 0; i < line.Length; i++)
         {
             text.text = line.Substring(0, i) + "<color=#0000>" + line.Substring(i) + "</color>";
 
             yield return new WaitForSeconds(0.05f);
         }
-        isTextAnimated = false;
     }
 
     private void ChangeBackground()
     {
-        if (currentBackgroundIndex < backgounds.Count)
+        if (currentBackgroundIndex < backgrounds.Count)
         {
-            isTextAnimated = true;
-            Sprite newBackground = backgounds[currentBackgroundIndex];
+            Sprite newBackground = backgrounds[currentBackgroundIndex];
 
             if (backgroundImage.sprite != null)
             {
@@ -108,14 +101,8 @@ public class IntroManager : MonoBehaviour
                 foregroundImage.gameObject.SetActive(false);
             });
 
-            isTextAnimated = false;
-            NextLine();
-        }
-        else
-        {
-            isTextAnimated = true;
-            AudioManager.instance.StopMusic();
-            SceneManager.LoadScene("LevelTesting -dev-Y");
+            string line = dialogues[currentLineIndex];
+            textCoroutine = StartCoroutine(_TextAnimation(line, mainText));
         }
     }
 }
