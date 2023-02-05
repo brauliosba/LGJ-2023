@@ -678,14 +678,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 02eae74f2c41a4a4fb4956ecfe910ad3, type: 3}
   dialogues:
   - "\xC9rase una vez, un chef muy amado por todo el mundo. \xA1El chef Oligo! Era
-    due\xF1o de un restaurante muy popular, con la comida m\xE1s deliciosa que podr\xEDas
-    probar. Todos quer\xEDan conocerlo y ser su amigo\u2026\r"
+    due\xF1o de un restaurante muy popular, con la comida mas deliciosa que podr\xEDas
+    probar. Todos querian conocerlo y ser su amigo\u2026\r"
   - "Sin embargo, algunos no compart\xEDan ese sentimiento\u2026 Algunos estaban
-    resentidos y quer\xEDan vengarse de \xE9l\u2026\r"
+    resentidos y querian vengarse de el\u2026\r"
   - "\xA1Eran los vegetales! Aquellos que el chef hab\xEDa cortado para ser alabado,
     se vengaban y le daban vida a sus hermanas."
-  - "\xBFPero qu\xE9 es eso? Rudy, la ruda, viene a defender a Oligo de su horrible
-    destino. Es hora de empezar esta batalla variopinto.\r\n"
+  - "\xA1\xBFPero qu\xE9 es eso?! Rudy, la ruda, viene a defender a Oligo de su horrible
+    destino. Es hora de empezar esta batalla variopinto...\r\n"
 --- !u!4 &1589244031
 Transform:
   m_ObjectHideFlags: 0
