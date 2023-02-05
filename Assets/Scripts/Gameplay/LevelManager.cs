@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour
                 enemyHealth = currentEnemy.Health;
 
                 playerHealthBar.gameObject.SetActive(true);
-                playerHealthBar.HealthBarAnimation(playerHealth, 1, player.Health, 1, null);
+                playerHealthBar.HealthBarAnimation(playerHealth, (float)playerHealth / player.Health, player.Health, 1, null);
 
                 enemyHealthBar.gameObject.SetActive(true);
                 enemyHealthBar.HealthBarAnimation(enemyHealth, 1, enemyHealth, 1, PlayerTurn);
