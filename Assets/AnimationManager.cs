@@ -13,8 +13,8 @@ public class AnimationManager : MonoBehaviour
     {
         enemy = prefab;
     }
-    int standxpos = -540;
-    int playerxpos = -400;
+    int standxpos = -522;
+    int playerxpos = -522;
     int enemyxpos = -400;
     public void PrepAnimation()
     {
