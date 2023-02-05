@@ -20,6 +20,11 @@ public class IntroManager : MonoBehaviour
     private Image foregroundImage;
     [SerializeField]
     private TMP_Text mainText;
+    [SerializeField]
+    private Button mainButton;
+
+    [SerializeField]
+    private Sprite posionXImage;
 
     [SerializeField]
     private List<Sprite> backgrounds;
@@ -35,6 +40,8 @@ public class IntroManager : MonoBehaviour
     {
         mainText.text = "";
         ChangeBackground();
+        mainButton.onClick.RemoveAllListeners();
+        mainButton.onClick.AddListener(OnNextImageButtonClicked);
     }
 
     public void OnNextImageButtonClicked()
@@ -73,11 +80,38 @@ public class IntroManager : MonoBehaviour
         }
     }
 
+    private void PosionX()
+    {
+        foregroundImage.sprite = backgroundImage.sprite;
+        foregroundImage.color = Color.white;
+
+        foregroundImage.gameObject.SetActive(true);
+
+        backgroundImage.sprite = posionXImage;
+
+        backgroundImage.color = Color.white;
+        backgroundImage.gameObject.SetActive(true);
+
+        foregroundImage.DOFade(0f, 1f).From(1f).OnComplete(() =>
+        {
+            foregroundImage.gameObject.SetActive(false);
+        });
+
+        mainButton.onClick.RemoveAllListeners();
+        mainButton.onClick.AddListener(OnNextImageButtonClicked);
+    }
+
     private void ChangeBackground()
     {
         if (currentBackgroundIndex < backgrounds.Count)
         {
             Sprite newBackground = backgrounds[currentBackgroundIndex];
+
+            if (currentBackgroundIndex == 1)
+            {
+                mainButton.onClick.RemoveAllListeners();
+                mainButton.onClick.AddListener(PosionX);
+            }
 
             if (backgroundImage.sprite != null)
             {

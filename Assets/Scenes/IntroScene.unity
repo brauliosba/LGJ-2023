@@ -244,19 +244,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266018543}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1589244030}
-        m_TargetAssemblyTypeName: IntroManager, Assembly-CSharp
-        m_MethodName: OnNextImageButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &517367688
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +669,8 @@ MonoBehaviour:
   backgroundImage: {fileID: 1702000032}
   foregroundImage: {fileID: 517367690}
   mainText: {fileID: 1343699690}
+  mainButton: {fileID: 266018545}
+  posionXImage: {fileID: 21300000, guid: 27c160a6c5d02174793d89d2c6d0dac6, type: 3}
   backgrounds:
   - {fileID: 21300000, guid: 6736e9d9eb5ff6046beb55af77361e1f, type: 3}
   - {fileID: 21300000, guid: f9d3dcd4c4397a44ebf833c134a04b71, type: 3}
