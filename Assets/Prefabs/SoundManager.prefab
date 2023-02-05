@@ -431,6 +431,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0239972ee5084cb419dbef94e53d2c13, type: 2}
   - {fileID: 11400000, guid: 5fba12ffabf000e4ebca1d3b4fd51968, type: 2}
   - {fileID: 11400000, guid: 140ecaddf6913ae4d8251d363ac2f2f4, type: 2}
+  - {fileID: 11400000, guid: 099f84e3d21cf874fb68efb1632f18d1, type: 2}
+  - {fileID: 11400000, guid: a58aceaf47c8dd84688e1b9ea6ec71f5, type: 2}
+  - {fileID: 11400000, guid: e6de30d3203cf5949a9a7b0578a9585b, type: 2}
   musicAudioSource: {fileID: 4611883345442662440}
   soundAudioSourceList:
   - {fileID: 4611883345234318728}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9234278ac26536a47bcab50effe63f70, type: 3}
   m_Name: New_Sound 6
   m_EditorClassIdentifier: 
-  Name: knife
-  AudioClip: {fileID: 8300000, guid: 6ab984e5f2764b54d849652a832707aa, type: 3}
+  Name: battle
+  AudioClip: {fileID: 8300000, guid: 33c1730f6a810754cad0446897d43918, type: 3}
   Volume: 1

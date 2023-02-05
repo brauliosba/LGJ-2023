@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-        AudioManager.instance.PlayMusicFade("intro", true);
+        AudioManager.instance.PlayMusicFade("battle", true);
         currentLevelEnemies = currentLevel.Enemies;
 
         for (int i = 0; i < player.Skills.Count; i++)
