@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI goodFeedback;
     [SerializeField] private TMPro.TextMeshProUGUI perfectFeedback;
     [SerializeField] private Transform feedbackInput;
-    private int totalDamage = 0;
+    private float totalDamage = 0;
     private int goodCount = 0;
     private int missCount = 0;
     private int perfectCount = 0;
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
       //  Debug.Log("miss count " + missCount);
       //  Debug.Log("good count " + goodCount);
       //  Debug.Log("perfect count " + perfectCount);
-        return totalDamage;
+        return Mathf.FloorToInt(totalDamage);
     }
     void Update()
     {
@@ -58,11 +58,11 @@ public class InputManager : MonoBehaviour
             {
                 if (!isDefend)
                 {
-                    totalDamage += Mathf.FloorToInt(damage * 0.5f);
+                    totalDamage += damage * 0.5f;
                 }
                 else
                 {
-                    totalDamage += Mathf.FloorToInt(damage * 0.33f);
+                    totalDamage += damage * 0.33f;
                 }
                     
                 goodCount++;
@@ -73,11 +73,11 @@ public class InputManager : MonoBehaviour
             {
                 if (!isDefend)
                 {
-                    totalDamage += Mathf.FloorToInt(damage);
+                    totalDamage += damage;
                 }
                 else
                 {
-                    totalDamage += Mathf.FloorToInt(damage * 0.66f);
+                    totalDamage += damage * 0.66f;
                 }
                                 
                 perfectCount++;
