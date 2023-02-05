@@ -674,8 +674,8 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 21300000, guid: 6736e9d9eb5ff6046beb55af77361e1f, type: 3}
   - {fileID: 21300000, guid: f9d3dcd4c4397a44ebf833c134a04b71, type: 3}
-  - {fileID: 21300000, guid: 6736e9d9eb5ff6046beb55af77361e1f, type: 3}
-  - {fileID: 21300000, guid: f9d3dcd4c4397a44ebf833c134a04b71, type: 3}
+  - {fileID: 21300000, guid: 02cf45598429fab4b81c777500899a2e, type: 3}
+  - {fileID: 21300000, guid: 02eae74f2c41a4a4fb4956ecfe910ad3, type: 3}
   dialogues:
   - "\xC9rase una vez, un chef muy amado por todo el mundo. \xA1El chef Oligo! Era
     due\xF1o de un restaurante muy popular, con la comida m\xE1s deliciosa que podr\xEDas
