@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -19,7 +20,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI endgameTxt;
     [SerializeField]
+    private Image endgameImage;
+    [SerializeField]
     private GameObject endgameContainer;
+    [SerializeField]
+    private List<Sprite> endgameSprites;
     [SerializeField]
     private List<SkillOption> skillOptions;
 
@@ -243,10 +248,12 @@ public class LevelManager : MonoBehaviour
         endgameContainer.SetActive(true);
         if (playerWin)
         {
-            endgameTxt.text = "Ganaste !!";
+            endgameImage.sprite = endgameSprites[0];
+            endgameTxt.text = "Ganaste!!";
         }
         else
         {
+            endgameImage.sprite = endgameSprites[1];
             endgameTxt.text = "Perdiste";
         }
         /*
